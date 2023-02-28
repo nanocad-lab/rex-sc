@@ -1,4 +1,4 @@
-# GEO
+# REX-SC
 This is a software library used for training of stochastic computing(SC)-based neural networks tuned for REX-SC.
 
 ## Directory Structure
