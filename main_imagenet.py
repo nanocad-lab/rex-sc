@@ -272,7 +272,7 @@ def main():
             train_loader, model, criterion, epoch, optimizer, monitor=args.monitor, scaler=scaler, dtype=args.dtype, scheduler=scheduler, dali=args.dali, acc_limit=args.acc_limit, channels_last=args.channels_last, calibrate=calibrate)
 
         val_loss, val_prec1, val_prec5 = utils_own.validate(
-            val_loader, model, criterion, epoch, verbal=True, monitor=args.monitor, dali=args.dali, channels_last=args.channels_last)
+            val_loader, model, criterion, epoch, verbal=True, monitor=args.monitor, dtype=args.dtype, dali=args.dali, channels_last=args.channels_last)
         # remember best prec@1 and save checkpoint
         is_best = val_prec1 > best_prec1
         best_prec1 = max(val_prec1, best_prec1)

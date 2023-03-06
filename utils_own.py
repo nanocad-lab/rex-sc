@@ -208,11 +208,11 @@ def train(data_loader, model, criterion, epoch, optimizer, monitor=False, scaler
     return forward(data_loader, model, criterion, epoch, training=True, optimizer=optimizer, monitor=monitor, scaler=scaler, dtype=dtype, scheduler=scheduler, dali=dali, acc_limit=acc_limit, channels_last=channels_last, transfer=transfer, model_base=model_base, calibrate=calibrate)
 
 
-def validate(data_loader, model, criterion, epoch, verbal=False, monitor=False, dali=False, channels_last=False):
+def validate(data_loader, model, criterion, epoch, verbal=False, monitor=False, dtype='fp32', dali=False, channels_last=False):
     '''
     Copied from BinarizedNN.pytorch rep. Verbal allows training information to be displayed. Iteration specifies the number of batches to run (to save time)
     '''
     # switch to evaluate mode
     model.eval()
     with torch.no_grad():
-        return forward(data_loader, model, criterion, epoch, training=False, optimizer=None, verbal=verbal, monitor=monitor, dali=dali, channels_last=channels_last)
+        return forward(data_loader, model, criterion, epoch, training=False, optimizer=None, dtype=dtype, verbal=verbal, monitor=monitor, dali=dali, channels_last=channels_last)
